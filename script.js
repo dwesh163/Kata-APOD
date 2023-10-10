@@ -31,25 +31,56 @@ async function fetchAPI() {
 
 function setPage(JSONObject) {
   data = JSON.parse(JSON.stringify(JSONObject, null, 3));
-  console.log(data)
+  console.log(data);
 
   document.getElementsByClassName("title")[0].innerHTML = data["title"];
   document.getElementsByClassName("date")[0].innerHTML = data["date"];
   document.getElementsByClassName("explanation")[0].innerHTML =
     data["explanation"];
   document.getElementsByClassName("hdurl")[0].src = data["hdurl"];
-  if(data["copyright"] != null)
-  {
-    document.getElementsByClassName("copyright")[0].innerHTML = data["copyright"]
-  }
-  else{
-    document.getElementsByClassName("copyright")[0].innerHTML = "NASA public domain"
+  if (data["copyright"] != null) {
+    document.getElementsByClassName("copyright")[0].innerHTML =
+      data["copyright"];
+  } else {
+    document.getElementsByClassName("copyright")[0].innerHTML =
+      "NASA public domain";
   }
 }
 
 async function setKey() {
   const API_key = document.getElementById("APIKey").value;
   localStorage.setItem("APIKey", API_key);
+}
+
+function setDay(move) {
+  var current = document.getElementById("date").value;
+  newDate = new Date(current);
+
+  var now = new Date(current);
+  var day = ("0" + now.getDate()).slice(-2);
+  var month = ("0" + (now.getMonth() + 1)).slice(-2);
+  var newCurrent = now.getFullYear() + "-" + month + "-" + day;
+
+  var now = new Date();
+  var day = ("0" + now.getDate()).slice(-2);
+  var month = ("0" + (now.getMonth() + 1)).slice(-2);
+  var date = now.getFullYear() + "-" + month + "-" + day;
+
+  if (move == "before") {
+    newDate.setDate(newDate.getDate() - 1);
+  }
+  if (move == "after" && date != newCurrent) {
+    newDate.setDate(newDate.getDate() + 1);
+  }
+
+
+  var now = new Date(newDate);
+  var day = ("0" + now.getDate()).slice(-2);
+  var month = ("0" + (now.getMonth() + 1)).slice(-2);
+  var date = now.getFullYear() + "-" + month + "-" + day;
+  document.getElementById("date").value = date
+
+  fetchAPI();
 }
 
 setTimeout(() => {
