@@ -37,11 +37,17 @@
             <div class="info">
                 <h1 class="title"></h1>
                 <!--<h2 class="date"></h2>-->
-                <input id="date" type="date" value="2000-01-01" min="1995-06-16">
+                <input id="date" type="date" value="2000-01-01" min="1995-06-16" onchange="fetchAPI()">
                 <div class="img">
-                    <button onclick="setDay('before')">before</button>
+                    <button onclick="setDay('before')"><img class="button" src="img/right.png" alt=""></button>
                     <img class="hdurl" src="" alt="">
-                    <button onclick="setDay('after')">after</button>
+                    <iframe class="video" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <button onclick="setDay('after')"><img class="button" src="img/left.png" alt=""></button>
+                </div>
+                <div class="button-600-cont">
+
+                    <button onclick="setDay('before')"><img class="button-600" src="img/right.png" alt=""></button>
+                    <button onclick="setDay('after')"><img class="button-600" src="img/left.png" alt=""></button>
                 </div>
                 <h3 class="explanation"> </h3>
                 <h4 class="copyright"></h4>
@@ -49,22 +55,21 @@
         </section>
         <section class="section-settings">
             <section>
-
+                
                 <input type="text" name="" id="APIKey">
                 <button onclick="setKey()" placeholder="Valid APOD api key here" >Set API key</button>
             </section>          
             <section>
-
-                <h2>Don't have one ? You can get one <a href="https://api.nasa.gov/">here</a></h2>
+                
+                <h2>Don't have one? You can get one <a href="https://api.nasa.gov/">here</a><div class=""></div></h2>
             </section>
         </section>
         
     </main>
-
-
-    <footer>Copyright © Dwesh163</footer>
-
-
+    
+    
 </body>
+
+<div class="footer">code with ❤️ by dwesh163</div>
 
 </html>
