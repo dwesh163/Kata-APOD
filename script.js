@@ -139,14 +139,13 @@ function activePageFunction(active) {
   if (ActivePage == "apod") {
     document.getElementsByClassName(`section-settings`)[0].style.position = "absolute";
     document.getElementsByClassName(`section-apod`)[0].style.position = "relative";
-    document.getElementsByClassName("footer")[0].style.position = "relative";
     document.getElementsByClassName(`section-settings`)[0].style.marginTop = "-100px";
   }
   else{
     document.getElementsByClassName(`section-settings`)[0].style.position = "relative";
     document.getElementsByClassName(`section-apod`)[0].style.position = "absolute";
-    document.getElementsByClassName("footer")[0].style.position = "absolute";
     document.getElementsByClassName(`section-settings`)[0].style.marginTop = "20%";
+    document.getElementsByClassName()
   }
 0
   document.getElementsByClassName(`line-${ActivePage}`)[0].style.visibility =

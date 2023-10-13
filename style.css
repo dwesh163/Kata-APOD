@@ -204,14 +204,16 @@ h4 {
   align-items: center;
 }
 
-.footer {
+header {
   background-color: #17191a;
   color: #fff;
   text-align: center;
-  padding: 1.8%;
+  padding: 1.5%;
   width: 100%;
   position: relative;
-  bottom: 0px;
+  top: 0px;
+  max-height: 190px;
+  vertical-align: middle;
 }
 .video {
   background-color: #00000000;
