@@ -72,9 +72,12 @@ function setPage(data) {
     document.getElementsByClassName("video")[0].src = ""
     document.getElementsByClassName("video")[0].style.position = "absolute";
     document.getElementsByClassName("hdurl")[0].style.position = "relative";
+    document.getElementsByClassName("video")[0].style.left = "-500px";
   }
   else{
     document.getElementsByClassName("hdurl")[0].src = "";
+    document.getElementsByClassName("video")[0].src = data["url"];
+    document.getElementsByClassName("video")[0].style.left = "0px";
     document.getElementsByClassName("video")[0].src = data["url"];
     document.getElementsByClassName("hdurl")[0].style.position = "absolute";
     document.getElementsByClassName("video")[0].style.position = "relative";
@@ -176,4 +179,4 @@ setTimeout(() => {
   setToday();
 }, 0.1);
 
-setTimeout(() => {fetchAPI();}, 0.1);
+//setTimeout(() => {fetchAPI();}, 0.1);

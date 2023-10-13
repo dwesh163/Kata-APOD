@@ -132,7 +132,7 @@ nav img {
 main {
   padding-top: 2%;
   background-color: (21, 36, 36);
-  height: 90.5vh;
+
 }
 
 .info {
@@ -232,7 +232,8 @@ h4 {
   visibility: hidden;
   position: absolute;
   width: 0px;
-}
+} 
+  
 @media (max-width: 610px) {
   .img .hdurl {
     width: 82%;
