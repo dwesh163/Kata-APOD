@@ -179,4 +179,4 @@ setTimeout(() => {
   setToday();
 }, 0.1);
 
-//setTimeout(() => {fetchAPI();}, 0.1);
+setTimeout(() => {fetchAPI();}, 0.1);
