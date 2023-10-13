@@ -274,6 +274,8 @@ h4 {
     height: 100px;
     gap: 8px;
     padding: 12px;
+    visibility: visible;
+    position: relative;
   }
   
   .button-600-cont button {
