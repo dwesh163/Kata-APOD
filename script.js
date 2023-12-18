@@ -3,18 +3,26 @@ let notActivePage = 'settings';
 let quality = '';
 
 async function setToday() {
-	var now = new Date();
-	var day = ('0' + now.getDate()).slice(-2);
-	var month = ('0' + (now.getMonth() + 1)).slice(-2);
-	var today = now.getFullYear() + '-' + month + '-' + day;
-	document.getElementById('date').value = today;
+	const url = new URL(window.location.href);
+	if (url.searchParams.get('date')) {
+		document.getElementById('date').value = url.searchParams.get('date');
+	} else {
+		var now = new Date();
+		var day = ('0' + now.getDate()).slice(-2);
+		var month = ('0' + (now.getMonth() + 1)).slice(-2);
+		var today = now.getFullYear() + '-' + month + '-' + day;
+		console.log('toda:', today);
+		document.getElementById('date').value = today;
+	}
+
+	document.getElementById('date').style.display = '';
 }
 
 async function fetchAPI() {
 	activePageFunction('apod');
 
 	const dateInput = document.getElementById('date');
-	const API_key = localStorage.getItem('APIKey');
+	const API_key = localStorage.getItem('APOD_APIKey');
 
 	let localData = localStorage.getItem('APOD');
 
@@ -30,7 +38,7 @@ async function fetchAPI() {
 		if (response.status != 200) {
 			const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_key}&date=${dateInput.value}`);
 			if (response.status != 200) {
-				activePageFunction('settings');
+				//activePageFunction('settings');
 			} else {
 				const JSONObject = await response.json();
 				setPage(JSON.parse(JSON.stringify(JSONObject, null, 3)));
@@ -80,7 +88,7 @@ function setPage(data) {
 
 async function setKey() {
 	const API_key = document.getElementById('APIKey').value;
-	localStorage.setItem('APIKey', API_key);
+	localStorage.setItem('APOD_APIKey', API_key);
 	fetchAPI();
 }
 
@@ -109,7 +117,7 @@ function setDay(move) {
 	var day = ('0' + now.getDate()).slice(-2);
 	var month = ('0' + (now.getMonth() + 1)).slice(-2);
 	var date = now.getFullYear() + '-' + month + '-' + day;
-	document.getElementById('date').value = date;
+	window.location.href = `?date=${date}`;
 
 	fetchAPI();
 }
@@ -137,7 +145,7 @@ function activePageFunction(active) {
 		document.getElementsByClassName(`section-settings`)[0].style.marginTop = '20%';
 		document.getElementsByClassName();
 	}
-	0;
+
 	document.getElementsByClassName(`line-${ActivePage}`)[0].style.visibility = 'visible';
 	document.getElementsByClassName(`line-${notActivePage}`)[0].style.visibility = 'hidden';
 }
