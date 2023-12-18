@@ -8,6 +8,12 @@
 	background-color: rgb(21, 36, 36);
 }
 
+html,
+body {
+	height: 100%;
+	margin: 0;
+}
+
 .section-settings {
 	visibility: hidden;
 	display: flex;
@@ -131,6 +137,7 @@ nav img {
 main {
 	padding-top: 2%;
 	background-color: (21, 36, 36);
+	min-height: calc(100vh - 190px);
 }
 
 .info {
