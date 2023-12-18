@@ -1,79 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>APOD</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<nav>
+		<section class="logo">
+			<img src="img/logo.png" alt="" />
+			<h1>APOD</h1>
+		</section>
+		<section class="url">
+			<div onmouseover="over('apod')" onmouseout="out('apod')">
+				<button onclick="activePageFunction(`apod`)">APOD</button>
+				<div class="line-apod"></div>
+			</div>
+			<div onmouseover="over('settings')" onmouseout="out('settings')">
+				<button onclick="activePageFunction(`settings`)">Settings</button>
+				<div class="line-settings"></div>
+			</div>
+		</section>
+	</nav>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APOD</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<header>
-    code with ❤️ by dwesh163
-</header>
-<nav>
-    <section class="logo">
-        <img src="img/logo.png" alt="" />
-        <h1>APOD</h1>
-    </section>
-    <section class="url">
-        <div onmouseover="over('apod')" onmouseout="out('apod')">
-            <button onclick="activePageFunction(`apod`)">APOD</button>
-            <div class="line-apod"></div>
-        </div>
-        <div onmouseover="over('settings')" onmouseout="out('settings')">
-            <button onclick="activePageFunction(`settings`)">Settings</button>
-            <div class="line-settings"></div>
-        </div>
+	<body>
+		<main>
+			<script src="script.js"></script>
 
-
-
-    </section>
-
-</nav>
-
-<body>
-    <main>
-
-        <script src="script.js"></script>
-        
-        <section class="section-apod">
-            <div class="info">
-                <h1 class="title"></h1>
-                <!--<h2 class="date"></h2>-->
-                <input id="date" type="date" value="2000-01-01" min="1995-06-16" onchange="fetchAPI()">
-                <div class="img">
-                    <button onclick="setDay('before')"><img class="button" src="img/right.png" alt=""></button>
-                    <img class="hdurl" src="" alt="">
-                    <iframe class="video" width="0px" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <button onclick="setDay('after')"><img class="button" src="img/left.png" alt=""></button>
-                </div>
-                <div class="button-600-cont">
-
-                    <button onclick="setDay('before')"><img class="button-600" src="img/right.png" alt=""></button>
-                    <button onclick="setDay('after')"><img class="button-600" src="img/left.png" alt=""></button>
-                </div>
-                <h3 class="explanation"> </h3>
-                <h4 class="copyright"></h4>
-            </div>
-        </section>
-        <section class="section-settings">
-            <section>
-                
-                <input type="text" name="" id="APIKey">
-                <button onclick="setKey()" placeholder="Valid APOD api key here" >Set API key</button>
-            </section>          
-            <section>
-                
-                <h2>Don't have one? You can get one <a href="https://api.nasa.gov/">here</a><div class=""></div></h2>
-            </section>
-        </section>
-        
-    </main>
-    
-    
-</body>
-
-
-
-
+			<section class="section-apod">
+				<div class="info">
+					<h1 class="title"></h1>
+					<!--<h2 class="date"></h2>-->
+					<input id="date" type="date" value="2000-01-01" min="1995-06-16" onchange="fetchAPI()" />
+					<div class="img">
+						<button onclick="setDay('before')"><img class="button" src="img/right.png" alt="" /></button>
+						<img class="hdurl" src="" alt="" />
+						<iframe class="video" width="0px" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						<button onclick="setDay('after')"><img class="button" src="img/left.png" alt="" /></button>
+					</div>
+					<div class="button-600-cont">
+						<button onclick="setDay('before')"><img class="button-600" src="img/right.png" alt="" /></button>
+						<button onclick="setDay('after')"><img class="button-600" src="img/left.png" alt="" /></button>
+					</div>
+					<h3 class="explanation"></h3>
+					<h4 class="copyright"></h4>
+				</div>
+			</section>
+			<section class="section-settings">
+				<section>
+					<input type="text" name="" id="APIKey" />
+					<button onclick="setKey()" placeholder="Valid APOD api key here">Set API key</button>
+				</section>
+				<section>
+					<h2>
+						Don't have one? You can get one <a href="https://api.nasa.gov/">here</a>
+						<div class=""></div>
+					</h2>
+				</section>
+			</section>
+		</main>
+		<footer>code with ❤️ by dwesh163</footer>
+	</body>
 </html>
