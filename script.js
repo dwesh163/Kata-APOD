@@ -58,6 +58,7 @@ async function fetchAPI() {
 
 function setPage(data) {
 	document.getElementsByClassName('title')[0].innerHTML = data['title'];
+	document.title = `${data['title']} - APOD`;
 	//document.getElementsByClassName("date")[0].innerHTML = data["date"];
 	document.getElementsByClassName('explanation')[0].innerHTML = data['explanation'];
 
